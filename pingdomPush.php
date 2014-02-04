@@ -25,7 +25,6 @@ try {
 $checks = $pingdom_response->json();
 
 foreach ($checks['checks'] as $check) {
-  $check['status'] = 'down';
   if ($check['status'] !== 'up') {
     sendAlert($client, $check);
   }
